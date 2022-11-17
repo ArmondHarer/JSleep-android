@@ -6,18 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView4"
+    <Button
+        android:id="@+id/btnPrev"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="300dp"
+        android:text="Prev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPrev"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnPrev" />
+
+    <Button
+        android:id="@+id/btnGo"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="Go"
+        app:layout_constraintBottom_toBottomOf="@+id/et_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_page" />
+
+    <EditText
+        android:id="@+id/et_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME TO JSLEEP"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="285dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        android:layout_marginEnd="14dp"
+        android:ems="4"
+        android:hint="Page"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+        app:layout_constraintEnd_toStartOf="@+id/btnGo"
+        app:layout_constraintTop_toTopOf="@+id/btnNext" />
+
+    <ListView
+        android:id="@+id/legacy_listview"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
-        />
+        tools:layout_editor_absoluteY="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
