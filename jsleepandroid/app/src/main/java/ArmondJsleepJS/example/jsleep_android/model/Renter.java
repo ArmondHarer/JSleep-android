@@ -1,6 +1,6 @@
 package ArmondJsleepJS.example.jsleep_android.model;
 
-public class Renter{
+public class Renter extends Serializable{
     public String username;
     public String address;
     public String phonenumber;

@@ -3,7 +3,7 @@ package ArmondJsleepJS.example.jsleep_android.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Room{
+public class Room extends Serializable{
     public int size;
     public String name;
     public Price price;
