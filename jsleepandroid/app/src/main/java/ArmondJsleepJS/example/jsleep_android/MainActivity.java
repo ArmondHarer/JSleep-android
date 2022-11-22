@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.util.Log;
 
+import ArmondJsleepJS.example.jsleep_android.model.Account;
 import ArmondJsleepJS.example.jsleep_android.model.Room;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -20,6 +21,9 @@ import java.io.InputStream;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static Account loginACC;
+    public static Account registerACC;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

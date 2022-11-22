@@ -45,9 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                     Account account = requestAccount();
-                Intent move = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(move);
-                //Toast.makeText(getApplicationContext(),"WELCOME", Toast.LENGTH_SHORT).show();
+                    Account login = requestLogin();
             }
         });
     }
@@ -59,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Account account;
                     account = response.body();
-                    System.out.println(account.toString());
+                    //System.out.println(account.toString());
                 }
             }
 
@@ -69,6 +67,29 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "ERROR:No account id = 0", Toast.LENGTH_SHORT).show();
             }
 
+        });
+        return null;
+    }
+
+    protected Account requestLogin(){
+        String username = this.username.getText().toString();
+        String password = this.password.getText().toString();
+        mApiService.login(username, password).enqueue(new Callback<Account>() {
+            @Override
+            public void onResponse(Call<Account> call, Response<Account> response) {
+                if(response.isSuccessful()){
+                    MainActivity.loginACC = response.body();
+                    System.out.println("Account yang digunakan : " + MainActivity.loginACC.toString());
+                    Intent move = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(move);
+                    Toast.makeText(getApplicationContext(),"WELCOME TO JSLEEP, " + username, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Account> call, Throwable t) {
+                Toast.makeText(mContext, "LOGIN FAILED, PLEASE TRY AGAIN", Toast.LENGTH_LONG).show();
+            }
         });
         return null;
     }

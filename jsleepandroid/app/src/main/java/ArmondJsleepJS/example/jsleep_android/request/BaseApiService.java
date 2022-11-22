@@ -28,7 +28,6 @@ public interface BaseApiService {
     @POST("account/{id}/topUp")
     Call<Boolean> topUp(@Path("id") int id, @Query("balance") int balance);
 
-    //RoomController BaseApi
     @GET("room/{id}")
     Call<Room> getRoom (@Path("id") int id);
 

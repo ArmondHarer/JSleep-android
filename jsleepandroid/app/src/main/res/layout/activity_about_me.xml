@@ -52,8 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:text="Armond"
         android:textColor="#050000"
+        android:text="User Name"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_name" />
@@ -63,8 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:text="Hihihuhu@gmail.com"
         android:textColor="#050000"
+        android:text="User Email"
         app:layout_constraintBottom_toBottomOf="@+id/tv_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_email" />
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:text="0.2"
+        android:text="UserBalance"
         app:layout_constraintBottom_toBottomOf="@+id/tv_balance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_balance" />
