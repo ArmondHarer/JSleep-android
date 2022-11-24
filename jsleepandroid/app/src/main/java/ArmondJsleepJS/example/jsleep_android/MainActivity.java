@@ -21,8 +21,7 @@ import java.io.InputStream;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static Account loginACC;
-    public static Account registerACC;
+    public static Account ACC;
 
 
     @Override

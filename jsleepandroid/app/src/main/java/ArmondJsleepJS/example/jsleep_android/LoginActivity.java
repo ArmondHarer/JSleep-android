@@ -44,13 +44,13 @@ public class LoginActivity extends AppCompatActivity {
         main.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                    Account account = requestAccount();
+                    //Account account = requestAccount();
                     Account login = requestLogin();
             }
         });
     }
 
-    protected Account requestAccount(){
+    /*protected Account requestAccount(){
         mApiService.getAccount(3).enqueue(new Callback<Account>() {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
@@ -70,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         return null;
     }
+    */
+
 
     protected Account requestLogin(){
         String username = this.username.getText().toString();
@@ -78,11 +80,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 if(response.isSuccessful()){
-                    MainActivity.loginACC = response.body();
-                    System.out.println("Account yang digunakan : " + MainActivity.loginACC.toString());
+                    MainActivity.ACC = response.body();
+                    System.out.println("Account yang digunakan : " + MainActivity.ACC.toString());
                     Intent move = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(move);
                     Toast.makeText(getApplicationContext(),"WELCOME TO JSLEEP, " + username, Toast.LENGTH_SHORT).show();
+                    startActivity(move);
                 }
             }
 
