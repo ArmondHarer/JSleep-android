@@ -62,10 +62,10 @@ public class AboutMeActivity extends AppCompatActivity {
             RegisterRenter.setVisibility(View.GONE);
             Register1.setVisibility(View.GONE);
         } else {
+            RenterInfo.setVisibility(View.GONE);
             String RName = RRName.getText().toString();
             String RAdd = RRAdd.getText().toString();
             String RNum = RRNum.getText().toString();
-            RenterInfo.setVisibility(View.GONE);
             Register1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -74,6 +74,9 @@ public class AboutMeActivity extends AppCompatActivity {
                         public void onResponse(Call<Renter> call, Response<Renter> response) {
                             ACC.renter = response.body();
                             Toast.makeText(getApplicationContext(), "NEW RENTER REGISTERED", Toast.LENGTH_SHORT).show();
+                            RentName.setText(ACC.renter.username);
+                            RentAddress.setText(ACC.renter.address);
+                            RentNum.setText(ACC.renter.phonenumber);
                         }
 
                         @Override
