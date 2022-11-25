@@ -45,4 +45,7 @@ public interface BaseApiService {
                            @Query("city") City city,
                            @Query("address") String address);
 
+    @GET("room/getAllRoom")
+    Call<Room> getAllRoom (@Query("page") int page,
+                             @Query("pageSize") int pagesize);
 }

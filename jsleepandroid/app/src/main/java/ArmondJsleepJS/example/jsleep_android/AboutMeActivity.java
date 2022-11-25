@@ -34,6 +34,7 @@ public class AboutMeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_me);
+        mContext = this;
 
         nama = findViewById(R.id.tv_userName);
         email = findViewById(R.id.tv_userEmail);
