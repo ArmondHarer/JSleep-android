@@ -140,7 +140,7 @@
                 android:layout_marginTop="25dp"
                 android:text="Address"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tv_RenterName" />
 
             <TextView
                 android:id="@+id/tv_RenterNumber"
@@ -205,7 +205,8 @@
                 android:layout_marginStart="10dp"
                 android:ems="15"
                 android:hint="Name"
-                android:inputType="numberDecimal"
+                android:inputType="text"
+                android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -218,7 +219,8 @@
                 android:layout_marginStart="10dp"
                 android:ems="15"
                 android:hint="Address"
-                android:inputType="numberDecimal"
+                android:inputType="text"
+                android:padding="10dp"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/RegRenterName"/>

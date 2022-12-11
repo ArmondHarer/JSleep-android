@@ -1,5 +1,6 @@
 package ArmondJsleepJS.example.jsleep_android.request;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ArmondJsleepJS.example.jsleep_android.model.*;
@@ -26,7 +27,7 @@ public interface BaseApiService {
                                 @Query("phoneNumber") String phoneNumber);
 
     @POST("account/{id}/topUp")
-    Call<Boolean> topUp(@Path("id") int id, @Query("balance") int balance);
+    Call<Boolean> topUp(@Path("id") int id, @Query("balance") double balance);
 
     @GET("room/{id}")
     Call<Room> getRoom (@Path("id") int id);
@@ -41,11 +42,28 @@ public interface BaseApiService {
                            @Query("name") String name,
                            @Query("size") int size,
                            @Query("price") double price,
-                           @Query("facility") Facility facility,
+                           @Query("facility") ArrayList<Facility> facility,
                            @Query("city") City city,
+                           @Query("bedtype") BedType bedtype,
                            @Query("address") String address);
 
     @GET("room/getAllRoom")
-    Call<Room> getAllRoom (@Query("page") int page,
+    Call<List<Room>> getAllRoom (@Query("page") int page,
                              @Query("pageSize") int pagesize);
+
+    @GET("payment/{id}")
+    Call<Payment> getPayment(@Path("id") int id);
+
+    @POST("payment/create")
+    Call<Payment> createPayment ( @Query("buyerId") int buyerId,
+                                  @Query("renterId") int renterId,
+                                  @Query("roomId") int roomId,
+                                  @Query("from") String from,
+                                  @Query("to") String to);
+
+    @POST("payment/{id}/accept")
+    Call<Boolean> accept (@Path("id") int id);
+
+    @POST("payment/{id}/cancel")
+    Call<Boolean> cancel (@Path("id") int id);
 }

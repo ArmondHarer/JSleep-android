@@ -1,208 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateRoom">
 
-    <TextView
-        android:id="@+id/tv_CreateRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Create Room"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/roomregname"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:hint="Name"
-        android:inputType="text"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_CreateRoom" />
+        <TextView
+            android:id="@+id/tv_CreateRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Create Room"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/roomregprice"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:hint="Price"
-        android:inputType="number"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomregname" />
+        <EditText
+            android:id="@+id/roomregname"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="Name"
+            android:inputType="text"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_CreateRoom" />
 
-    <EditText
-        android:id="@+id/roomregaddress"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:hint="Address"
-        android:inputType="text"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomregprice" />
+        <EditText
+            android:id="@+id/roomregprice"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Price"
+            android:inputType="number"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomregname" />
 
-    <EditText
-        android:id="@+id/roomregsize"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:hint="Size"
-        android:inputType="number"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomregaddress" />
+        <EditText
+            android:id="@+id/roomregaddress"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Address"
+            android:inputType="text"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomregprice" />
 
-    <TextView
-        android:id="@+id/tv_facility"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Facilities"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
-        app:layout_constraintTop_toBottomOf="@+id/roomregsize" />
+        <EditText
+            android:id="@+id/roomregsize"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Size"
+            android:inputType="number"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomregaddress" />
 
-    <CheckBox
-        android:id="@+id/checkbox_AC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="AC"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
-        app:layout_constraintTop_toBottomOf="@+id/tv_facility" />
+        <TextView
+            android:id="@+id/tv_facility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Facilities"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
+            app:layout_constraintTop_toBottomOf="@+id/roomregsize" />
 
-    <CheckBox
-        android:id="@+id/checkbox_Refrigerator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refrigerator"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_AC"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_AC"
-        app:layout_constraintBottom_toBottomOf="@id/checkbox_AC"/>
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_AC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="AC"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
+            app:layout_constraintTop_toBottomOf="@+id/tv_facility" />
 
-    <CheckBox
-        android:id="@+id/checkbox_wifi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WiFi"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@id/checkbox_Refrigerator"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_AC"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_Refrigerator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refrigerator"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_AC"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_AC"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_AC"/>
 
-    <CheckBox
-        android:id="@+id/checkbox_bathtub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Bathtub"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_AC" />
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WiFi"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_Refrigerator"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_AC"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    <CheckBox
-        android:id="@+id/checkbox_balcony"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balcony"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_bathtub"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_bathtub"
-        app:layout_constraintBottom_toBottomOf="@id/checkbox_bathtub" />
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_bathtub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bathtub"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_CreateRoom"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_AC" />
 
-    <CheckBox
-        android:id="@+id/checkbox_restaurant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Restaurant"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@id/checkbox_balcony"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_bathtub"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/checkbox_bathtub" />
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_balcony"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balcony"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_bathtub"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_bathtub"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_bathtub" />
 
-    <CheckBox
-        android:id="@+id/checkbox_swimmingpool"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Swimming Pool"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@id/tv_CreateRoom"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_bathtub"/>
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_restaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_balcony"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_bathtub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_bathtub" />
 
-    <CheckBox
-        android:id="@+id/checkbox_fitness"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="Fitness Center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toTopOf="@id/checkbox_swimmingpool"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/checkbox_swimmingpool"/>
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_swimmingpool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Swimming Pool"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/tv_CreateRoom"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_bathtub"/>
 
-    <Spinner
-        android:id="@+id/spinnerCity"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="City"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_fitness"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <CheckBox
+            android:onClick="onCheckboxClicked"
+            android:id="@+id/checkbox_fitness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Fitness Center"
+            android:textSize="20dp"
+            app:layout_constraintTop_toTopOf="@id/checkbox_swimmingpool"
+            app:layout_constraintStart_toEndOf="@id/checkbox_bathtub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_swimmingpool"/>
 
-    <Spinner
-        android:id="@+id/spinnerBedType"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Bed Type"
-        app:layout_constraintTop_toBottomOf="@id/spinnerCity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/CityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="City"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/spinnerCity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/spinnerCity" />
 
-    <Button
-        android:id="@+id/createbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Create"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@id/tv_CreateRoom"
-        app:layout_constraintTop_toBottomOf="@id/spinnerBedType"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/BedTypeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Bed Type"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/spinnerBedType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/spinnerBedType" />
 
-    <Button
-        android:id="@+id/cancelbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
-        android:text="Cancel"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerBedType"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <Spinner
+            android:id="@+id/spinnerCity"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="City"
+            android:text="City"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_fitness"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:id="@+id/spinnerBedType"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="Bed Type"
+            android:text="Bed Type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCity" />
+
+        <Button
+            android:id="@+id/createbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Create"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@id/tv_CreateRoom"
+            app:layout_constraintTop_toBottomOf="@id/spinnerBedType"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/cancelbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Cancel"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerBedType"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

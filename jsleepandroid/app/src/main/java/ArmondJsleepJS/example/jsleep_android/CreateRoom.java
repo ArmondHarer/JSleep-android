@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+import java.util.ArrayList;
+
 import ArmondJsleepJS.example.jsleep_android.model.*;
 import ArmondJsleepJS.example.jsleep_android.request.BaseApiService;
 import ArmondJsleepJS.example.jsleep_android.request.UtilsApi;
@@ -18,7 +20,7 @@ import retrofit2.Response;
 public class CreateRoom extends AppCompatActivity {
     BaseApiService mApiService;
     Context mContext;
-    Facility facility;
+    ArrayList<Facility> Facilities = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,8 @@ public class CreateRoom extends AppCompatActivity {
         EditText Size = findViewById(R.id.roomregsize);
         EditText Price = findViewById(R.id.roomregprice);
         EditText Address = findViewById(R.id.roomregaddress);
-        Spinner SpinCity = (Spinner) findViewById(R.id.spinnerCity);
-        Spinner SpinBedType = (Spinner) findViewById(R.id.spinnerBedType);
+        Spinner SpinCity = findViewById(R.id.spinnerCity);
+        Spinner SpinBedType = findViewById(R.id.spinnerBedType);
         SpinCity.setAdapter(new ArrayAdapter<City>(this, android.R.layout.simple_spinner_item, City.values()));
         SpinBedType.setAdapter(new ArrayAdapter<BedType>(this, android.R.layout.simple_spinner_item, BedType.values()));
         Button create = findViewById(R.id.createbutton);
@@ -50,14 +52,24 @@ public class CreateRoom extends AppCompatActivity {
             }
         });
 
+        final BedType[] bedtype = new BedType[1];
+        SpinBedType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                bedtype[0] = (BedType) SpinBedType.getAdapter().getItem(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
         create.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Room room = requestRoom(MainActivity.ACC.id, Name.getText().toString(),
                         Integer.parseInt(Size.getText().toString()), Double.parseDouble(Price.getText().toString()),
-                        facility, (City) city[0], Address.getText().toString());
+                        Facilities, (City) city[0], (BedType) bedtype[0], Address.getText().toString());
             }
         });
 
@@ -71,9 +83,62 @@ public class CreateRoom extends AppCompatActivity {
 
     }
 
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+            case R.id.checkbox_AC:
+                if (checked)
+                    Facilities.add(Facility.AC);
+                else
+                    Facilities.remove(Facility.AC);
+                break;
+            case R.id.checkbox_Refrigerator:
+                if (checked)
+                    Facilities.add(Facility.Refrigerator);
+                else
+                    Facilities.remove(Facility.Refrigerator);
+                break;
+            case R.id.checkbox_wifi:
+                if (checked)
+                    Facilities.add(Facility.WiFi);
+                else
+                    Facilities.remove(Facility.WiFi);
+                break;
+            case R.id.checkbox_bathtub:
+                if (checked)
+                    Facilities.add(Facility.Bathtub);
+                else
+                    Facilities.remove(Facility.Bathtub);
+                break;
+            case R.id.checkbox_balcony:
+                if (checked)
+                    Facilities.add(Facility.Balcony);
+                else
+                    Facilities.remove(Facility.Balcony);
+                break;
+            case R.id.checkbox_restaurant:
+                if (checked)
+                    Facilities.add(Facility.Restaurant);
+                else
+                    Facilities.remove(Facility.Restaurant);
+                break;
+            case R.id.checkbox_swimmingpool:
+                if (checked)
+                    Facilities.add(Facility.SwimmingPool);
+                else
+                    Facilities.remove(Facility.SwimmingPool);
+                break;
+            case R.id.checkbox_fitness:
+                if (checked)
+                    Facilities.add(Facility.FitnessCenter);
+                else
+                    Facilities.remove(Facility.FitnessCenter);
+                break;
+        }
+    }
 
-    protected Room requestRoom(int id, String name, int size, double price, Facility facilities, City city, String address){
-        mApiService.createRoom(id, name, size,price, facilities, city, address).enqueue(new Callback<Room>() {
+    protected Room requestRoom(int id, String name, int size, double price, ArrayList<Facility> Facilities, City city, BedType bedtype, String address){
+        mApiService.createRoom(id, name, size,price, Facilities, city, bedtype, address).enqueue(new Callback<Room>() {
             @Override
             public void onResponse(Call<Room> call, Response<Room> response) {
                 Room room = response.body();

@@ -6,11 +6,12 @@ public class Account extends Serializable{
     public Renter renter;
     public String password;
     public Double balance;
-    public Account(String name, String email, String password)
+    public Account(String name, String email, String password, Double balance)
     {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.balance = balance;
     }
 
     @Override

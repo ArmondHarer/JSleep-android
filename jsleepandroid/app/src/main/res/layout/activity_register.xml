@@ -64,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
         android:text="Already have an account? \n              Login Here!"
-        android:textColor="#2D8AC8"
+        android:textColor="#6200ED"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

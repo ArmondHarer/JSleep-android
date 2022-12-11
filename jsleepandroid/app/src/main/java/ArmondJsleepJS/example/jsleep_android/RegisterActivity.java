@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import ArmondJsleepJS.example.jsleep_android.model.Account;
@@ -16,8 +17,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Account registration activity. Here new users can register new accounts
+ * @Author Armond Harer
+ */
 public class RegisterActivity extends AppCompatActivity {
     BaseApiService mApiService;
+    TextView Back2login;
     EditText nama, email, password;
     Button Reg;
     Context mContext;
@@ -33,15 +39,33 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
         Reg = findViewById(R.id.btnRegister);
+        Back2login = findViewById(R.id.tv_loginHere);
 
+        //Request account registration
         Reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                        Account regisNew = requestRegister();
+                requestRegister();
             }
         });
+
+        //If text is clicked, return to login activity
+        Back2login.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ReturntoLogin = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(ReturntoLogin);
+            }
+        }));
     }
 
+    /**
+     * Function to register a new account
+     * @Param nama      | Account name
+     * @Param email     | Account email address
+     * @Param password  | Account password
+     * @return a new account, and instantly log in to main activity
+     */
     protected Account requestRegister(){
         mApiService.register(
                 nama.getText().toString(),
