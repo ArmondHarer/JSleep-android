@@ -17,6 +17,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Room registration activity. Here users with the help of a renter can register rooms for rent
+ * @Author Armond Harer
+ */
 public class CreateRoom extends AppCompatActivity {
     BaseApiService mApiService;
     Context mContext;
@@ -40,6 +44,7 @@ public class CreateRoom extends AppCompatActivity {
         Button create = findViewById(R.id.createbutton);
         Button cancel = findViewById(R.id.cancelbutton);
 
+        //Segment of code for selecting City enum from spinner
         final City[] city = new City[1];
         SpinCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -52,6 +57,7 @@ public class CreateRoom extends AppCompatActivity {
             }
         });
 
+        //Ditto as above, but for BedType enum
         final BedType[] bedtype = new BedType[1];
         SpinBedType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -83,6 +89,7 @@ public class CreateRoom extends AppCompatActivity {
 
     }
 
+    //Segment of code for adding Facility enum from checkboxes to Facility arraylist
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         switch (view.getId()) {
@@ -137,6 +144,18 @@ public class CreateRoom extends AppCompatActivity {
         }
     }
 
+    /**
+     * Room registration function
+     * @param id            | ID of account linked to registration
+     * @param name          | Room name
+     * @param size          | Room size (in meters squared)
+     * @param price         | Room price (per night)
+     * @param Facilities    | Room facilities
+     * @param city          | City where room is located
+     * @param bedtype       | Room bed size
+     * @param address       | Room location address
+     * @return new room
+     */
     protected Room requestRoom(int id, String name, int size, double price, ArrayList<Facility> Facilities, City city, BedType bedtype, String address){
         mApiService.createRoom(id, name, size,price, Facilities, city, bedtype, address).enqueue(new Callback<Room>() {
             @Override

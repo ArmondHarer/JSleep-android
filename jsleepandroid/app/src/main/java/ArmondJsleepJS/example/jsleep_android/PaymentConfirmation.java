@@ -20,6 +20,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Payment Confirmation Activity. Buyer can see how much money will be
+ * left in their account balance after booking the room
+ */
 public class PaymentConfirmation extends AppCompatActivity {
     public static Payment ThisPayment;
     BaseApiService mApiService;

@@ -27,6 +27,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Payment Detail activity. Buyers can insert time interval in which they
+ * will book a certain room, as well as see how much it would cost them
+ * @Author Armond Harer
+ */
 public class PaymentDetail extends AppCompatActivity {
 
     BaseApiService mApiService;
@@ -66,6 +71,7 @@ public class PaymentDetail extends AppCompatActivity {
         ConfirmPayment = findViewById(R.id.BuyButton);
         CancelPayment = findViewById(R.id.BuyCancel);
 
+        // Add date room will be booked from upon click
         From.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +91,7 @@ public class PaymentDetail extends AppCompatActivity {
             }
         });
 
+        // Add date room will be booked until upon click
         To.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +112,7 @@ public class PaymentDetail extends AppCompatActivity {
             }
         });
 
+        // Show total payment cost until click
         totalPayment.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -129,6 +137,7 @@ public class PaymentDetail extends AppCompatActivity {
             }
         });
 
+        //Make new Payment class, intent to PaymentConfirmation
         ConfirmPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,12 +154,13 @@ public class PaymentDetail extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Payment> call, Throwable t) {
-
+                        Toast.makeText(mContext, "Payment Registration Failure", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
 
+        //Returns to Main Activity
         CancelPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

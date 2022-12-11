@@ -14,8 +14,17 @@ import java.util.ArrayList;
 
 import ArmondJsleepJS.example.jsleep_android.model.Room;
 
+/**
+ * List Displayer class for showing the list in main activity
+ * @Author Armond Harer
+ */
 public class ListDisplayer extends ArrayAdapter<Room> {
 
+    /**
+     * Constructor for the list displayer
+     * @param context   | Context
+     * @param rooms     | Which rooms it will display
+     */
     public ListDisplayer(@NonNull Context context, ArrayList<Room> rooms) {
         super(context, 0, rooms);
     }

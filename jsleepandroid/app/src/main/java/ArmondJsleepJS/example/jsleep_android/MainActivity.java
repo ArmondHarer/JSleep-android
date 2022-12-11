@@ -25,6 +25,13 @@ import java.io.IOException;
 import java.util.*;
 import java.io.InputStream;
 
+/**
+ * Main Activity for JSleep-Android. Users can scroll through the list of rooms,
+ * register their own rooms with a renter's help, book rooms, and look at their
+ * account information via this app
+ *
+ * @Author Armond Harer
+ */
 public class MainActivity extends AppCompatActivity {
     public static Account ACC;
     BaseApiService mApiService;
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         roomviewer.setOnItemClickListener(this::onItemClick);
         EditText viewpage = findViewById(R.id.et_page);
 
+        //Next button function. Skips to the next page on the room list
         Next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Previous button function. Skips to the previous page on the room list
         Previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Go button function. Skips to designated page upon click
         Go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +113,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Gets a list of rooms based on which page it is located n
+     * @param page  | page of list of rooms
+     * @return a list of rooms based on the page order and page size (static in this case)
+     */
     protected List<Room> getRoomList(int page) {
+        //Error handling for negative page numbers
         if(page < 0){
             Toast.makeText(mContext, "ERROR: Negative Page Number", Toast.LENGTH_SHORT).show();
             return null;
@@ -117,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     ListDisplayer adapter = new ListDisplayer(mContext, (ArrayList<Room>) currentList);
                     roomviewer.setAdapter(adapter);
 
+                    //Upon clicking a room name written on the list, intents towards said room's Room Detail activity
                     roomviewer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -140,6 +157,13 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Adapter for when the room name is clicked
+     * @param l         | AdapterView
+     * @param v         | View
+     * @param position  | The room's position order
+     * @param id        | The ID of the room's order
+     */
     public void onItemClick (AdapterView<?> l, View v, int position, long id){
         Intent intent = new Intent();
         index = position;
@@ -151,23 +175,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Function to set up top menu containing room registration, search, account information and logout button
+     * @param menu | The menu element
+     * @return true boolean
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu, menu);
         return true;
     }
 
+    /**
+     * Function for whenever a menu element is clicked
+     * @param item  | Which menu element is clicked
+     * @return true boolean
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            //About Me button, intents to account information
             case R.id.menu_aboutMe:
             {Intent about = new Intent(MainActivity.this, AboutMeActivity.class);
                 startActivity(about);
                 break;}
+            //Add Room button, intents to Room registration
             case R.id.menu_add:
             {Intent room = new Intent(MainActivity.this, CreateRoom.class);
                 startActivity(room);
                 break;}
+            //Logout button, sends user back to login screen and logs out account
             case R.id.menu_Logout: {
                 AlertDialog.Builder Logout = new AlertDialog.Builder(mContext);
                 Logout.setMessage("Are you sure you would like to log out?").setTitle("Confirm Logout");

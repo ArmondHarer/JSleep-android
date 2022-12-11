@@ -12,6 +12,10 @@ import android.widget.TextView;
 import ArmondJsleepJS.example.jsleep_android.model.Facility;
 import ArmondJsleepJS.example.jsleep_android.model.Room;
 
+/**
+ * Room Detail activity. Displays information about a room class
+ * @Author Armond Harer
+ */
 public class RoomDetail extends AppCompatActivity {
     public static Room ThisRoom;
     Button Buy, Cancel;
@@ -42,7 +46,8 @@ public class RoomDetail extends AppCompatActivity {
         CheckBox swimmingPool = findViewById(R.id.checkbox_swimmingpool);
         CheckBox fitnessCenter = findViewById(R.id.checkbox_fitness);
 
-
+        //for loop for determining which checkboxes will be ticked
+        //according to whichever facilities a room has
         for(int i = 0; i < ThisRoom.facility.size(); i++) {
             if (ThisRoom.facility.get(i) == Facility.AC) {
                 AC.setChecked(true);
@@ -63,6 +68,7 @@ public class RoomDetail extends AppCompatActivity {
             }
         }
 
+        //Buyer rents room upon click. Intents towards Payment Details activity
         Buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +77,7 @@ public class RoomDetail extends AppCompatActivity {
             }
         });
 
+        //Intents back to main activity
         Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
